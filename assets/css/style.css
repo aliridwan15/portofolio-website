@@ -1,17 +1,20 @@
-/* ===== VARIABLES ===== */
+/* ===== 1. VARIABLES & THEMES ===== */
 :root {
     --primary-color: #4fc3f7;
     --secondary-color: #00d2ff;
     --bg-dark: #0b0f1a;
     --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-header: rgba(11, 15, 26, 0.8);
     --text-main: #eaeaea;
     --text-muted: #a0aec0;
+    --border-light: rgba(255, 255, 255, 0.05);
+    
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== RESET & GLOBAL ===== */
+/* ===== 2. RESET & GLOBAL STYLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -30,14 +33,14 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== 3. NAVBAR ===== */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(11, 15, 26, 0.8);
+    background: var(--bg-header);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-light);
     z-index: 1000;
 }
 
@@ -88,7 +91,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== 4. HERO SECTION ===== */
 .hero {
     min-height: 100vh;
     padding: 140px 24px 80px;
@@ -157,19 +160,18 @@ header {
 }
 
 .btn.secondary {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-main);
 }
 
 .btn.secondary:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Hero Image & Animation */
 .hero-image {
     display: flex;
     justify-content: center;
-    position: relative;
 }
 
 .image-blob {
@@ -182,6 +184,7 @@ header {
     justify-content: center;
     animation: blobify 8s ease-in-out infinite alternate;
     position: relative;
+    box-shadow: 0 0 45px rgba(79, 195, 247, 0.2);
 }
 
 .image-blob img {
@@ -196,21 +199,127 @@ header {
     100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== 5. TOOLS SECTION ===== */
+.tools-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 24px;
+}
+
+.tools-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.section-intro {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 800px;
+    font-size: 1rem;
+}
+
+/* Grid Layout */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+}
+
+/* Tech Cards */
+.tech-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    padding: 30px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.tech-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(79, 195, 247, 0.1);
+}
+
+/* BAGIAN INI YANG BIKIN LOGO RAPI (Icon Font & Gambar) */
+.tech-card i, 
+.tech-card img {
+    width: 60px;  /* Lebar area logo */
+    height: 60px; /* Tinggi area logo */
+    font-size: 3.5rem; /* Ukuran font icon (Devicon) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain; /* Agar gambar SVG tidak gepeng */
+    margin-bottom: 5px;
+}
+
+.tech-card span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Variasi Glow untuk section ganjil */
+.tools-section:nth-child(odd) .tech-card:hover {
+    box-shadow: 0 10px 20px rgba(79, 195, 247, 0.15);
+}
+
+/* ===== 6. RESPONSIVE DESIGN ===== */
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
         padding-top: 120px;
+        min-height: auto;
     }
 
-    .subtitle { margin: 0 auto 35px; }
-    .hero-btns { justify-content: center; }
+    .hero-image {
+        order: -1; /* Gambar naik ke atas di mobile */
+        margin-bottom: 40px;
+    }
+
+    .subtitle {
+        margin: 0 auto 35px;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
     
     .image-blob {
         width: 280px;
         height: 280px;
+        margin: auto;
     }
 
-    .nav-center { display: none; }
+    .nav-center {
+        display: none; /* Bisa dikembangkan menjadi hamburger menu */
+    }
+}
+
+@media (max-width: 600px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+        gap: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .tools-container {
+        padding: 60px 20px;
+    }
 }
