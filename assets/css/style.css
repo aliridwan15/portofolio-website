@@ -113,11 +113,11 @@ header {
 }
 .tech-card span { font-size: 1rem; font-weight: 600; color: var(--text-main); }
 
-/* ===== LOGO FLIP ONLY (ICON BERPUTAR, CARD DIAM) ===== */
+/* ===== LOGO FLIP ONLY (ICON BERPUTAR, TEKS DIAM) ===== */
 .flip-icon-wrapper {
     width: 60px;
     height: 60px;
-    perspective: 1000px; /* Efek 3D hanya pada icon */
+    perspective: 1000px; /* Efek 3D hanya pada container icon */
     margin-bottom: 5px;
 }
 
@@ -130,7 +130,7 @@ header {
     transform-style: preserve-3d;
 }
 
-/* Hover pada KARTU, memutar ICON */
+/* Hover pada CARD memutar ICON */
 .tech-card:hover .flip-icon-inner {
     transform: rotateY(180deg);
 }
@@ -149,24 +149,117 @@ header {
 .flip-icon-front { transform: rotateY(0deg); }
 .flip-icon-back { transform: rotateY(180deg); }
 
-/* Memastikan gambar di dalam flip pas */
+/* Pastikan gambar di dalam flip pas */
 .flip-icon-front img, .flip-icon-back img {
-    width: 60px; height: 60px; margin-bottom: 0; /* Override margin bawaan */
+    width: 60px; height: 60px; margin-bottom: 0;
 }
 
-/* ===== 6. RESPONSIVE DESIGN ===== */
+/* ===== 6. RESPONSIVE DESIGN (NAVBAR & HERO FIX) ===== */
 @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; text-align: center; padding-top: 100px; min-height: auto; gap: 30px; }
-    .hero-content { order: 2; }
-    .hero-image { order: 1; margin-bottom: 20px; display: flex; justify-content: center; width: 100%; }
-    .image-blob { width: 250px; height: 250px; }
-    .subtitle { margin: 0 auto 35px; }
-    .hero-btns { justify-content: center; }
-    .navbar { padding: 15px 20px; }
-    .nav-center { display: none; }
+    
+    /* --- 1. NAVBAR RESPONSIF --- */
+    .navbar {
+        /* Kembalikan ke row agar Logo tetap di kiri & tombol hamburger (opsional) di kanan */
+        flex-direction: row; 
+        flex-wrap: wrap; /* Izinkan elemen turun ke bawah jika tidak muat */
+        justify-content: space-between; /* Logo kiri, sosmed kanan (sementara) */
+        padding: 15px 20px;
+        height: auto;
+    }
+
+    /* Logo "ARN" tetap di kiri */
+    .nav-left {
+        order: 1;
+        flex-basis: 50%; /* Ambil setengah lebar */
+    }
+
+    /* Sosmed tetap di kanan (sejajar logo) */
+    .nav-right {
+        order: 2;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+
+    /* Menu Navigasi turun ke baris baru (di bawah Logo & Sosmed) */
+    .nav-center {
+        order: 3;
+        display: flex; /* Paksa muncul */
+        flex-basis: 100%; /* Lebar penuh */
+        justify-content: center; /* Menu rata tengah */
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 15px; /* Jarak dari baris logo */
+        border-top: 1px solid rgba(255,255,255,0.1); /* Garis pemisah tipis */
+        padding-top: 15px;
+    }
+
+    .nav-center a {
+        font-size: 0.9rem;
+        margin: 0 5px; /* Jarak antar menu */
+    }
+
+    /* --- 2. HERO SECTION --- */
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        /* Padding top diperbesar agar tidak ketutupan navbar yang makin tinggi */
+        padding-top: 180px; 
+        min-height: auto;
+        gap: 30px;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-image {
+        order: 1;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .image-blob {
+        width: 250px;
+        height: 250px;
+    }
+
+    .subtitle {
+        margin: 0 auto 35px;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
 }
+
 @media (max-width: 600px) {
-    .tech-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .section-title { font-size: 1.8rem; }
-    .tools-container { padding: 60px 20px; }
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .tools-container {
+        padding: 60px 20px;
+    }
+    
+    /* Pada layar sangat kecil, menu mungkin perlu stack vertikal juga */
+    .nav-center {
+        flex-direction: column; /* Menu jadi atas-bawah */
+        align-items: center;
+        gap: 10px;
+    }
+    
+    /* Tambah padding hero lagi karena menu makin panjang ke bawah */
+    .hero {
+        padding-top: 280px; 
+    }
 }
