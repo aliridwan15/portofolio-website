@@ -1,81 +1,100 @@
 <section class="tools-container" id="tools">
-    
     <div class="main-tools-header">
-        <h1 class="main-title">Tools dan <span class="highlight">Bahasa Pemrograman</span></h1>
-        <p class="main-subtitle">Kumpulan teknologi dan perangkat lunak yang saya gunakan untuk membangun solusi digital.</p>
+        <h1 class="main-title">Tech <span class="highlight">Stack</span></h1>
+        <p class="main-subtitle">Kombinasi teknologi dan instrumen modern yang saya integrasikan untuk membangun solusi digital yang efisien, skalabel, dan andal.</p>
     </div>
 
-    <div class="tools-section">
-        <h2 class="section-title">Sistem <span class="highlight">Operasi</span></h2>
-        <p class="section-intro">Sistem operasi utama yang menjadi basis produktivitas sehari-hari.</p>
-        <div class="tech-grid">
-            <div class="tech-card">
-                <i class="devicon-windows8-original colored"></i>
-                <span>Windows</span>
-            </div>
-        </div>
-    </div>
+    <div class="tools-carousel-wrapper">
+        <button class="carousel-btn prev-btn" id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-    <div class="tools-section">
-        <h2 class="section-title">Bahasa <span class="highlight">Pemrograman</span></h2>
-        <p class="section-intro">Pondasi logika yang saya gunakan dalam membangun solusi digital.</p>
-        <div class="tech-grid">
-            <div class="tech-card"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-            <div class="tech-card"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
-            <div class="tech-card"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
-            <div class="tech-card"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-        </div>
-    </div>
+        <div class="carousel-track-container">
+            <ul class="carousel-track" id="toolsTrack">
+                
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Sistem Operasi</h3>
+                        <p>Lingkungan komputasi yang digunakan dalam pengelolaan infrastruktur dan workflow pengembangan.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-windows8-original colored"></i><span>Windows</span></div>
+                        <div class="icon-item"><i class="devicon-ubuntu-plain colored"></i><span>Ubuntu</span></div>
+                    </div>
+                </li>
 
-    <div class="tools-section">
-        <h2 class="section-title">Database</h2>
-        <p class="section-intro">Manajemen penyimpanan data terstruktur yang efisien dan aman.</p>
-        <div class="tech-grid">
-            <div class="tech-card"><i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span></div>
-        </div>
-    </div>
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Markup & Styling</h3>
+                        <p>Teknologi fundamental untuk membangun struktur konten dan desain visual antarmuka web yang responsif.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                        <div class="icon-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                    </div>
+                </li>
 
-    <div class="tools-section">
-        <h2 class="section-title">Framework <span class="highlight">Web</span></h2>
-        <p class="section-intro">Teknologi modern untuk mempercepat pengembangan aplikasi yang skalabel.</p>
-        <div class="tech-grid">
-            <div class="tech-card"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
-            <div class="tech-card"><i class="devicon-codeigniter-plain colored"></i><span>CodeIgniter 4</span></div>
-            <div class="tech-card"><i class="devicon-flask-original"></i><span>Flask</span></div>
-        </div>
-    </div>
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Bahasa Pemrograman</h3>
+                        <p>Bahasa inti untuk mengimplementasikan logika komputasi, pemrosesan data, dan arsitektur perangkat lunak.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                        <div class="icon-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                        <div class="icon-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+                        <div class="icon-item"><i class="devicon-javascript-plain colored"></i><span>JS</span></div>
+                    </div>
+                </li>
 
-    <div class="tools-section">
-        <h2 class="section-title">Development <span class="highlight">Tools</span></h2>
-        <p class="section-intro">
-            Software pendukung untuk manajemen kode, kolaborasi, dan lingkungan server lokal.
-        </p>
-        
-        <div class="tech-grid">
-            <div class="tech-card">
-                <i class="devicon-github-original"></i>
-                <span>GitHub</span>
-            </div>
-            
-            <div class="tech-card">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VSCode">
-                <span>VS Code</span>
-            </div>
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Database Management</h3>
+                        <p>Sistem manajemen basis data relasional untuk memastikan integritas, keamanan, dan ketersediaan data.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span></div>
+                        <div class="icon-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+                    </div>
+                </li>
 
-            <div class="tech-card flip-trigger">
-                <div class="flip-icon-wrapper">
-                    <div class="flip-icon-inner">
-                        <div class="flip-icon-front">
-                            <img src="assets/img/laragon-seeklogo.png" alt="Laragon">
-                        </div>
-                        <div class="flip-icon-back">
-                            <img src="assets/img/xampp-seeklogo.png" alt="XAMPP">
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Frameworks</h3>
+                        <p>Teknologi kerangka kerja unggulan untuk mempercepat proses pengembangan aplikasi secara terstruktur.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+                        <div class="icon-item"><i class="devicon-codeigniter-plain colored"></i><span>CI 4</span></div>
+                        <div class="icon-item"><i class="devicon-flask-original"></i><span>Flask</span></div>
+                        <div class="icon-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+                        <div class="icon-item"><i class="devicon-streamlit-plain colored"></i><span>Streamlit</span></div>
+                    </div>
+                </li>
+
+                <li class="tool-category-card">
+                    <div class="card-header">
+                        <h3>Development Tools</h3>
+                        <p>Ekosistem perangkat lunak pendukung untuk meningkatkan produktivitas dan efisiensi workflow development.</p>
+                    </div>
+                    <div class="card-icons-grid">
+                        <div class="icon-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                        <div class="icon-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code"><span>VS Code</span></div>
+                        <div class="icon-item flip-box">
+                            <div class="flip-inner">
+                                <div class="flip-front"><img src="assets/img/laragon-seeklogo.png" alt="Laragon"></div>
+                                <div class="flip-back"><img src="assets/img/xampp-seeklogo.png" alt="XAMPP"></div>
+                            </div>
+                            <span>Laragon/Xampp</span>
                         </div>
                     </div>
-                </div>
-                <span>Laragon / XAMPP</span>
-            </div>
+                </li>
 
+            </ul>
         </div>
+
+        <button class="carousel-btn next-btn" id="nextBtn">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 </section>

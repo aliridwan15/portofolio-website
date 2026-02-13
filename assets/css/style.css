@@ -1,262 +1,375 @@
-/* ===== 1. VARIABLES & THEMES ===== */
-:root {
-    --primary-color: #4fc3f7;
-    --secondary-color: #00d2ff;
-    --bg-dark: #0b0f1a;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-header: rgba(11, 15, 26, 0.8);
-    --text-main: #eaeaea;
-    --text-muted: #a0aec0;
-    --border-light: rgba(255, 255, 255, 0.05);
-    
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ===== 2. RESET & GLOBAL STYLES ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-/* ===== 3. NAVBAR ===== */
-header {
-    position: fixed; top: 0; width: 100%;
-    background: var(--bg-header);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border-light);
-    z-index: 1000;
-}
-.navbar {
-    max-width: 1200px; margin: auto; padding: 20px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-}
-.logo { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--text-main); text-decoration: none; letter-spacing: 1px; }
-.logo span { color: var(--primary-color); }
-.nav-center a { margin: 0 18px; text-decoration: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
-.nav-center a:hover { color: var(--primary-color); }
-.nav-right a { margin-left: 20px; font-size: 1.3rem; color: var(--text-muted); transition: var(--transition); }
-.nav-right a:hover { color: var(--primary-color); transform: translateY(-3px); }
-
-/* ===== 4. HERO SECTION ===== */
-.hero {
-    min-height: 100vh; padding: 140px 24px 80px;
-    display: grid; grid-template-columns: 1.2fr 0.8fr;
-    align-items: center; gap: 60px; max-width: 1200px; margin: auto;
-}
-.greeting { color: var(--primary-color); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 10px; }
-.hero-content h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 24px; font-weight: 700; }
-.highlight { background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 580px; margin-bottom: 35px; }
-.btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: var(--transition); display: inline-block; }
-.btn.primary { background: var(--primary-color); color: #000; }
-.btn.primary:hover { box-shadow: 0 10px 20px rgba(79, 195, 247, 0.3); transform: translateY(-3px); }
-.btn.secondary { border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-main); }
-.btn.secondary:hover { background: rgba(255, 255, 255, 0.05); }
-
-/* Hero Image */
-.hero-image { display: flex; justify-content: center; }
-.image-blob {
-    width: 380px; height: 380px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    display: flex; align-items: center; justify-content: center;
-    animation: blobify 8s ease-in-out infinite alternate;
-    position: relative;
-    box-shadow: 0 0 45px rgba(79, 195, 247, 0.2);
-}
-.image-blob img { width: 95%; height: 95%; object-fit: cover; border-radius: inherit; }
-
-@keyframes blobify {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-}
-
-/* ===== 5. TOOLS SECTION ===== */
-.tools-container { max-width: 1200px; margin: auto; padding: 100px 24px; }
-
-/* Header Utama di Tools */
-.main-tools-header { text-align: center; margin-bottom: 60px; }
-.main-title { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
-.main-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-
-/* Sub-Sections */
-.tools-section { margin-bottom: 40px; }
-.section-title { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main); }
-.section-intro { color: var(--text-muted); margin-bottom: 25px; max-width: 800px; font-size: 1rem; }
-.tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 25px; }
-
-/* TECH CARDS STANDARD */
-.tech-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
-    padding: 30px 20px;
-    border-radius: 15px;
-    display: flex; flex-direction: column; align-items: center; gap: 15px;
-    transition: var(--transition); text-align: center;
-    min-height: 160px; 
-    justify-content: center;
-}
-.tech-card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(79, 195, 247, 0.1); }
-
-/* UKURAN LOGO STANDARD */
-.tech-card i, .tech-card img { 
-    width: 60px; height: 60px; font-size: 3.5rem; 
-    display: flex; justify-content: center; align-items: center;
-    object-fit: contain; margin-bottom: 5px;
-}
-.tech-card span { font-size: 1rem; font-weight: 600; color: var(--text-main); }
-
-/* ===== LOGO FLIP ONLY (ICON BERPUTAR, TEKS DIAM) ===== */
-.flip-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    perspective: 1000px; /* Efek 3D hanya pada container icon */
-    margin-bottom: 5px;
-}
-
-.flip-icon-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-/* Hover pada CARD memutar ICON */
-.tech-card:hover .flip-icon-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-icon-front, .flip-icon-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flip-icon-front { transform: rotateY(0deg); }
-.flip-icon-back { transform: rotateY(180deg); }
-
-/* Pastikan gambar di dalam flip pas */
-.flip-icon-front img, .flip-icon-back img {
-    width: 60px; height: 60px; margin-bottom: 0;
-}
-
-/* ===== 6. RESPONSIVE DESIGN (FIXED) ===== */
-@media (max-width: 900px) {
-    
-    /* --- 1. NAVBAR RESPONSIF --- */
-    .navbar {
-        /* Mengizinkan elemen turun ke baris baru (wrap) */
-        flex-wrap: wrap; 
-        justify-content: space-between;
-        padding: 15px 25px; /* Sedikit lebih lebar padding-nya */
-        height: auto; /* Tinggi otomatis menyesuaikan isi */
+    /* ===== 1. VARIABLES & THEMES ===== */
+    :root {
+        --primary-color: #4fc3f7;
+        --secondary-color: #00d2ff;
+        --bg-dark: #0b0f1a;
+        --bg-card: rgba(255, 255, 255, 0.03);
+        --bg-header: rgba(11, 15, 26, 0.8);
+        --text-main: #eaeaea;
+        --text-muted: #a0aec0;
+        --border-light: rgba(255, 255, 255, 0.05);
+        --font-heading: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Logo "ARN" KUNCI di Kiri */
+    /* ===== 2. RESET & GLOBAL STYLES ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-body);
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        line-height: 1.6; /* Diperbaiki agar teks paragraf lebih enak dibaca */
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased; /* Teks lebih tajam */
+    }
+
+    /* ===== 3. NAVBAR ===== */
+    header {
+        position: fixed; top: 0; width: 100%;
+        background: var(--bg-header);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-light);
+        z-index: 1000;
+    }
+    .navbar {
+        max-width: 1200px; margin: auto; padding: 18px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+        font-family: var(--font-heading); 
+        font-size: 1.5rem; 
+        font-weight: 700; 
+        color: var(--text-main); 
+        text-decoration: none; 
+        letter-spacing: 0.5px; 
+    }
+    .logo span { color: var(--primary-color); }
+    .nav-center a { 
+        margin: 0 15px; 
+        text-decoration: none; 
+        color: var(--text-muted); 
+        font-size: 0.9rem; 
+        font-weight: 500; 
+        transition: var(--transition); 
+        letter-spacing: 0.3px;
+    }
+    .nav-center a:hover { color: var(--primary-color); }
+    .nav-right a { margin-left: 20px; font-size: 1.2rem; color: var(--text-muted); transition: var(--transition); }
+    .nav-right a:hover { color: var(--primary-color); transform: translateY(-3px); }
+
+    /* ===== 4. HERO SECTION ===== */
+    .hero {
+        min-height: 100vh; padding: 140px 24px 80px;
+        display: grid; grid-template-columns: 1.2fr 0.8fr;
+        align-items: center; gap: 60px; max-width: 1200px; margin: auto;
+    }
+    .greeting { 
+        color: var(--primary-color); 
+        font-weight: 600; 
+        letter-spacing: 3px; /* Jarak antar huruf lebih tegas */
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        display: block; 
+        margin-bottom: 12px; 
+    }
+    .hero-content h1 { 
+        font-family: var(--font-heading); 
+        font-size: clamp(2.5rem, 5vw, 3.5rem); 
+        line-height: 1.2; 
+        margin-bottom: 24px; 
+        font-weight: 700; 
+        letter-spacing: -0.5px; /* Sedikit rapat untuk kesan modern */
+    }
+    .highlight { 
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+    }
+    .subtitle { 
+        font-size: 1.1rem; 
+        color: var(--text-muted); 
+        max-width: 540px; 
+        margin-bottom: 40px; 
+        line-height: 1.8; /* Ruang baca lebih lega */
+    }
+    .btn { 
+        padding: 14px 32px; 
+        border-radius: 10px; 
+        text-decoration: none; 
+        font-weight: 600; 
+        transition: var(--transition); 
+        display: inline-block; 
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+    }
+    .btn.primary { background: var(--primary-color); color: #0b0f1a; }
+    .btn.primary:hover { box-shadow: 0 10px 25px rgba(79, 195, 247, 0.4); transform: translateY(-3px); }
+    .btn.secondary { 
+        border: 1px solid rgba(255, 255, 255, 0.15); 
+        color: var(--text-main); 
+        margin-left: 15px;
+    }
+    .btn.secondary:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.3); }
+
+    /* Hero Image Blob */
+    .hero-image { display: flex; justify-content: center; }
+    .image-blob {
+        width: 360px; height: 360px;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        display: flex; align-items: center; justify-content: center;
+        animation: blobify 8s ease-in-out infinite alternate;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(79, 195, 247, 0.25);
+    }
+    .image-blob img { width: 95%; height: 95%; object-fit: cover; border-radius: inherit; }
+
+    @keyframes blobify {
+        0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    }
+
+    /* ===== 5. TOOLS CAROUSEL SECTION ===== */
+    .tools-container { max-width: 1200px; margin: auto; padding: 100px 24px; position: relative; }
+    .main-tools-header { text-align: center; margin-bottom: 60px; }
+    .main-title { 
+        font-family: var(--font-heading); 
+        font-size: clamp(2rem, 4vw, 2.8rem); 
+        font-weight: 700; 
+        color: var(--text-main); 
+        margin-bottom: 12px; 
+        letter-spacing: -0.5px;
+    }
+    .main-subtitle { 
+        font-size: 1rem; 
+        color: var(--text-muted); 
+        max-width: 600px; 
+        margin: 0 auto; 
+        opacity: 0.85; 
+        line-height: 1.6;
+    }
+
+    .tools-carousel-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 40px; 
+    }
+
+    /* Track Area */
+    .carousel-track-container {
+        width: 100%;
+        max-width: 950px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 30px 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        cursor: grab;
+        z-index: 1;
+    }
+    .carousel-track-container::-webkit-scrollbar { display: none; }
+    .carousel-track-container:active { cursor: grabbing; }
+
+    .carousel-track {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        padding: 0; margin: 0;
+        width: max-content;
+    }
+
+    /* Category Card */
+    .tool-category-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 40px 30px;
+        min-width: 320px;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        transition: var(--transition);
+        flex-shrink: 0;
+    }
+    .tool-category-card:hover { 
+        transform: translateY(-10px); 
+        border-color: rgba(79, 195, 247, 0.4); 
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); 
+    }
+
+    .card-header h3 { 
+        font-family: var(--font-heading); 
+        font-size: 1.4rem; 
+        color: var(--primary-color); 
+        margin-bottom: 10px; 
+        letter-spacing: 0.5px;
+    }
+    .card-header p { 
+        font-size: 0.85rem; 
+        color: var(--text-muted); 
+        margin-bottom: 35px; 
+        border-bottom: 1px solid rgba(255,255,255,0.06); 
+        padding-bottom: 20px; 
+        width: 100%; 
+        opacity: 0.8; 
+        line-height: 1.5;
+    }
+
+   /* Pastikan container icon menggunakan align-items: flex-end agar teks di bawah sejajar */
+.card-icons-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+    width: 100%; 
+    justify-items: center; 
+    align-items: flex-end; /* KUNCI: Membuat semua icon 'menapak' di baris yang sama */
+}
+
+.icon-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-end; /* Memastikan konten di dalam item menempel ke bawah */
+    gap: 10px; 
+    height: 100%; /* Agar semua item memiliki tinggi yang konsisten */
+}
+
+/* Membatasi ukuran logo agar seragam */
+.icon-item i, 
+.icon-item img,
+.icon-item .flip-box { 
+    font-size: 2.8rem !important; 
+    width: 50px; 
+    height: 50px; 
+    object-fit: contain; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Khusus untuk teks agar tidak terlalu lebar dan tetap rapi */
+.icon-item span { 
+    font-size: 0.65rem; /* Perkecil sedikit khusus untuk teks yang panjang */
+    color: var(--text-muted); 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap; /* Mencegah teks turun ke bawah jika terlalu panjang */
+}
+
+    /* Hover Effects on Logos */
+    .icon-item:hover i, .icon-item:hover img { 
+        transform: translateY(-12px) scale(1.15); 
+        filter: drop-shadow(0 0 15px var(--primary-color)); 
+    }
+    .icon-item:hover .colored { filter: drop-shadow(0 0 12px currentColor); }
+
+    /* Buttons */
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        color: var(--primary-color);
+        width: 50px; height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 999;
+        display: flex; align-items: center; justify-content: center;
+        transition: var(--transition);
+    }
+    .carousel-btn:hover { background: var(--primary-color); color: #0b0f1a; box-shadow: 0 0 20px rgba(79, 195, 247, 0.6); }
+    .prev-btn { left: 0px; }
+    .next-btn { right: 0px; }
+    .carousel-btn i { pointer-events: none; }
+
+    /* Flip Box */
+    .flip-box { perspective: 1000px; width: 48px; height: 48px; position: relative; }
+    .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+    .icon-item:hover .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; top: 0; left: 0; display: flex; align-items: center; justify-content: center; }
+    .flip-back { transform: rotateY(180deg); }
+
+/* ===== 6. RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+    /* Navbar Layout Fix */
+    .navbar { 
+        padding: 15px 20px;
+        display: flex;
+        flex-wrap: wrap; /* Memungkinkan item turun ke baris baru */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Logo tetap di kiri */
     .nav-left {
         order: 1;
-        flex-basis: 50%; /* Ambil separuh layar */
-        text-align: left; /* Pastikan teks rata kiri */
+        flex: 1;
     }
 
-    /* Sosmed KUNCI di Kanan */
+    /* Ikon Sosial Media di posisi kanan */
     .nav-right {
         order: 2;
-        flex-basis: 50%; /* Ambil separuh layar sisanya */
+        flex: 1;
         display: flex;
-        justify-content: flex-end; /* Pastikan icon rata kanan */
+        justify-content: flex-end; /* Memaksa ikon ke ujung kanan */
     }
 
-    /* Menu Navigasi Turun ke Bawah */
-    .nav-center {
-        order: 3;
-        flex-basis: 100%; /* Ambil lebar penuh baris baru */
-        display: flex;
-        justify-content: center; /* Menu rata tengah */
-        flex-wrap: wrap;
-        gap: 15px;
-        
-        /* Memberi jarak & garis pemisah tipis */
-        margin-top: 15px;
-        padding-top: 15px;
+    .nav-right a {
+        margin-left: 15px;
+        font-size: 1.1rem;
+    }
+
+    /* Menu diletakkan di tengah pada baris baru */
+    .nav-center { 
+        order: 3; 
+        width: 100%; 
+        display: flex; 
+        justify-content: center; /* Menu ke Tengah secara horizontal */
+        gap: 20px; 
+        padding: 15px 0 5px 0; 
         border-top: 1px solid rgba(255, 255, 255, 0.1); 
+        margin-top: 10px;
     }
 
-    .nav-center a {
-        margin: 0 5px;
-        font-size: 0.9rem;
-    }
-
-    /* --- 2. HERO SECTION (LEBIH TURUN) --- */
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        
-        /* Padding Top DIPERBESAR ke 220px supaya gambar turun dan tidak ketabrak navbar */
-        padding-top: 220px; 
-        
-        min-height: auto;
-        gap: 20px;
-    }
-
-    .hero-content {
-        order: 2; /* Teks di bawah gambar */
-    }
-
-    .hero-image {
-        order: 1; /* Gambar di atas teks */
-        display: flex;
-        justify-content: center; /* Pastikan gambar di tengah layar */
-        width: 100%;
-        margin-bottom: 20px;
+    .nav-center a { 
+        font-size: 0.85rem; 
+        margin: 0;
     }
     
-    .image-blob {
-        width: 240px; /* Ukuran blob disesuaikan */
-        height: 240px;
+    /* Hero & Tools adjustments */
+    .hero { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        padding-top: 160px; 
+        gap: 40px;
     }
+    .hero-content { order: 2; }
+    .hero-image { order: 1; margin-bottom: 10px; }
+    .subtitle { margin: 0 auto 30px; }
+    .btn.secondary { margin-left: 0; margin-top: 15px; }
 
-    .subtitle {
-        margin: 0 auto 30px;
-        padding: 0 10px; /* Sedikit padding agar teks tidak mepet layar HP */
-    }
-
-    .hero-btns {
-        justify-content: center;
-    }
+    .carousel-btn { width: 42px; height: 42px; background: rgba(11, 15, 26, 0.95); display: flex; }
+    .carousel-track-container { max-width: 100%; padding: 20px 0; }
+    .tool-category-card { min-width: 290px; max-width: 290px; padding: 35px 20px; }
 }
 
 @media (max-width: 600px) {
-    /* Penyesuaian Grid Tools di HP Kecil */
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .tools-container {
-        padding: 60px 20px;
-    }
-
-    /* Kalau layar sangat kecil, turunkan lagi heronya sedikit */
-    .hero {
-        padding-top: 240px;
-    }
+    .nav-center { gap: 12px; }
+    .main-title { font-size: 2rem; }
+    .hero { padding-top: 180px; }
+    .image-blob { width: 260px; height: 260px; }
 }
